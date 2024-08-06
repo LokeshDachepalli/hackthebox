@@ -1,0 +1,43 @@
+<< HACKTHEBOX - BASTARD - WINDOWS >>
+---------
+SCANNING:
+---------
+NMAP Output:
+nmap -Pn -sV -sC 10.10.10.9 -oN bastard-nmap-top  
+Starting Nmap 7.93 ( https://nmap.org ) at 2024-08-06 10:46 IST
+Nmap scan report for 10.10.10.9
+Host is up (0.085s latency).
+Not shown: 997 filtered tcp ports (no-response)
+PORT      STATE SERVICE VERSION
+80/tcp    open  http    Microsoft IIS httpd 7.5
+| http-methods: 
+|_  Potentially risky methods: TRACE
+|_http-title: Welcome to Bastard | Bastard
+| http-robots.txt: 36 disallowed entries (15 shown)
+| /includes/ /misc/ /modules/ /profiles/ /scripts/ 
+| /themes/ /CHANGELOG.txt /cron.php /INSTALL.mysql.txt 
+| /INSTALL.pgsql.txt /INSTALL.sqlite.txt /install.php /INSTALL.txt 
+|_/LICENSE.txt /MAINTAINERS.txt
+|_http-generator: Drupal 7 (http://drupal.org)
+|_http-server-header: Microsoft-IIS/7.5
+135/tcp   open  msrpc   Microsoft Windows RPC
+49154/tcp open  msrpc   Microsoft Windows RPC
+Service Info: OS: Windows; CPE: cpe:/o:microsoft:windows
+
+------------
+Enumeration:
+------------
+Port 80:
+From the nmap scan we know port 80 has drupal running with version 7.54 and we have robots.txt file, go through each and every entry and see if we can find anything Interesting.
+what is drupal? -  Drupal is a free and open-source web content management system written in PHP.
+
+Look for Known CVE's or exploits for drupal 7.54 - we have one RCE for this version 
+Find the exploit's below github profiles:
+https://github.com/firefart/CVE-2018-7600 -> Didn't work
+https://github.com/pimps/CVE-2018-7600    -> 
+https://github.com/a2u/CVE-2018-7600/     -> 
+
+
+
+
+
